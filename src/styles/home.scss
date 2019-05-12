@@ -1,0 +1,147 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145;
+
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue;
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		& > button{
+			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
+			transition: background-color 0.2s linear, color 0.2s linear;
+			&:hover{
+				background-color: $main-blue; color: #FFF;
+			}
+		}
+	}
+
+}
+/* 首页广告轮播图 */
+.banner{
+	width: 1000px; margin: 0 auto;
+	.el-carousel__item img {
+		width: 100%; height: 100%;
+    }
+    .el-carousel__item:nth-child(2n) {
+    	background-color: #99a9bf;
+  	}
+  	.el-carousel__item:nth-child(2n+1) {
+    	background-color: #d3dce6;
+  	}
+}
+.main{
+	width: 1000px; margin: 0 auto; margin-top: 30px;
+
+	&:after{
+		display: block; content: ""; clear: left;
+	}
+	h2{
+		color: $h-blue; font-size: 28px; width: 1000px; text-align: left; float: left; margin-bottom: 20px;
+	}
+	section{
+		width: 750px; float: left;
+		ul{
+			list-style: none;
+			li{
+				width: 750px; height: 108px; background-color: #FFF; margin-bottom: 26px;
+				img{
+					width: 122px; height: 108px; float: left;
+					&:hover{
+						opacity: 0.9;
+					};
+				}
+				div{
+					width: 600px; float: right; padding: 5px;
+					h3{
+						text-align: left; height: 40px; overflow: hidden; text-overflow: ellipsis;
+					}
+					p{
+						width: 600px; height: 50px; font-size: 14px; line-height: 24px; text-align: left; overflow:hidden; text-overflow: ellipsis;
+					}
+				}
+			}
+		}
+	}
+	aside{
+		width: 180px; float: right; background-color: #FFF; cursor: pointer; padding: 10px;
+		img{
+			width: 200px; height: 60px; margin: -10px 0 0 -10px;
+		}
+		ul{
+			list-style-position: inside;
+			li{
+				width: 180px; float: left; text-align: left; margin: 10px 0;
+			}
+		}
+	}
+}
+.zixun{
+	section{
+		width: 1000px; height: 330px;
+		ul{
+			list-style: none; width: 1040px;
+			li{
+				float: left; width: 220px; height: 330px; margin-right: 40px;
+				img{
+					width: 220px; height: 100px;
+				}
+				.zj-photo{
+					width: 96px; height: 96px; border: 2px solid #FFF; border-radius: 50%; margin-top: -50px; margin-left: 60px;
+				}
+				h6{
+					font-weight: normal; font-size: 16px; width: 220px; margin-top: 160px;
+				}
+				p{
+					margin-top: 10px; width: 220px; font-size: 14px; color: $text-gray;
+				}
+				.ly-btn{
+					margin-top: 14px; padding: 4px 8px; background-color: #FFF; border: 1px solid $line-gray;
+					&:hover{
+						background-color:$bg-yellow; color: #FFF; border: none;
+					};
+				}
+				.yuyue-btn{
+					margin-top: 16px; width: 116px; height: 34px; color: #FFF; background-color: $h-blue; border: none; border-radius: 5px;
+					&:hover{
+						opacity: 0.9;
+					};
+				}
+			}
+		}
+	}
+}

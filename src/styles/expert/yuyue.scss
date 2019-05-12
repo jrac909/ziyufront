@@ -1,0 +1,164 @@
+#main{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+#main header{
+	width: 1000px;
+}
+#head-title{
+	width: 60px;
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px 0;
+	background-color: #199ED8;
+}
+#head-content{
+	width: 915px;
+	display: inline-block;
+	vertical-align: top;
+	background-color: #199ED8;
+	padding: 20px 0;
+}
+#head-title h3{
+	color: #FFF;
+}
+#head-content p{
+	color: #FFF;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: left;
+	padding: 0 10px;
+}
+#main h4{
+	margin-top: 20px;
+	width: 1000px;
+	text-align: left;
+	font-weight: bold;
+}
+#yuyue-info{
+	width: 940px;
+	padding: 30px 30px;
+	margin-top: 30px;
+	background-color: #FFF;
+}
+#chenhu-info{
+	width: 940px;
+	height: 40px;
+}
+#chenhu-info span{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	padding-right: 30px;
+	float: left;
+	font-size: 14px;
+}
+#chenhu-info input{
+	width: 224px;
+	height: 32px;
+	outline: none;
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 600px;
+}
+#age-info span{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	padding-right: 30px;
+	float: left;
+	font-size: 14px;
+}
+#age-info input{
+	width: 224px;
+	height: 32px;
+	outline: none;
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 600px;
+}
+#sex-info{
+	width: 900px;
+	height: 32px;
+	float: left;
+}
+#sex-info span{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	padding-right: 30px;
+	float: left;
+	font-size: 14px;
+}
+#sex-info .el-radio{
+	display: inline-block;
+	width: 80px;
+	height: 32px;
+	float: left;
+	margin-bottom: 20px;
+}
+#zixun-info{
+	width: 900px;
+	height: 32px;
+	float: left;
+}
+#zixun-info span{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	padding-right: 30px;
+	float: left;
+	font-size: 14px;
+}
+#zixun-info .el-radio{
+	display: inline-block;
+	width: 136px;
+	height: 32px;
+	float: left;
+	margin-bottom: 20px;
+}
+#desc-info span{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	float: left;
+	font-size: 14px;
+	padding-right: 30px;
+}
+#desc-info textarea{
+	width: 757px;
+	height: 170px;
+	float: left;
+	margin-bottom: 20px;
+	padding: 16px 20px;
+	outline: none;
+}
+#phone-info span{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	float: left;
+	font-size: 14px;
+	padding-right: 30px;
+}
+#phone-info input{
+	width: 224px;
+	height: 32px;
+	outline: none;
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 600px;	
+}
+#yuyue-btn{
+	width: 140px;
+	height: 40px;
+	border-radius: 5px;
+	background-color: #199ED8;
+	color: #FFF;
+	border: none;
+	cursor: pointer;
+}
+#yuyue-btn:hover{
+	background-color: #30A8DC;
+}

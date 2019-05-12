@@ -1,0 +1,201 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145;
+
+/* 整个页面背景色 */
+#question{
+	background-color: #F6F6F6;
+}
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue;
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		& > button{
+			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
+			transition: background-color 0.2s linear, color 0.2s linear;
+			&:hover{
+				background-color: $main-blue; color: #FFF;
+			}
+		}
+	}
+}
+/* 确定内容展示部分居中，这里的高度需要内容撑起来，所有直接子元素必须有高度，不能 flow */
+#ques_main{
+	width: 1000px;
+	margin: 0 auto;
+	height: auto;
+	margin-top: 26px;
+	margin-bottom: 30px;
+	&:after{
+		display: block; content: ""; clear: both;
+	};
+}
+/* 问题列表最外层的box */
+#ques_list{
+	width: 630px;
+	height: auto;
+	padding: 5px 20px;
+	float: left;
+	&>ul{
+		list-style-type: none;
+		margin-bottom: 30px;
+		li{
+			height: 280px; margin: 30px 0; background-color: #FFF; border-radius: 8px; padding: 20px 30px;
+		}
+	}
+}
+#ques_list_header{
+	height: 40px;
+	border-bottom: 1px solid #797979;
+}
+#ques_list_header span{
+	font-size: 18px;
+	font-weight: bold;
+	float: left;
+	border: 1px solid #797979;
+	padding: 5px 20px;
+	margin-top: 5px;
+	margin-right: 30px;
+}
+#ques_list_header button{
+	color: #FFF;
+	border: none;
+	background-color: #ABBFFA;
+	float: left;
+	padding: 5px 16px;
+	margin-top: 13px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+#ques_list_header button:hover{
+	background-color: #698EF6;
+}
+#ques_list_header select{
+	width: 126px;
+	height: 30px;
+	margin-top: 6px;
+	margin-right: 10px;
+	outline: none;
+	float: right;
+	border: 1px solid #797979;
+}
+.ques_user{
+	width: 50px;
+	height: 68px;
+	float: left;
+	margin-right: 25px;
+	img{
+		width: 50px; height: 50px; border-radius: 50%;
+	}
+}
+.ques_detail{
+	width: 490px;
+	height: auto;
+	float: left;
+	.ques-user-info{
+		height: 50px; line-height: 50px;
+		span{
+			float: left; font-size: 14px; color: #000;
+		}
+		button{
+			float: right; width: 76px; height: 28px; border: none; color: #FFF; background-color: #0B8BFF;
+			cursor: pointer; border-radius: 6px;
+			&:hover{
+				opacity:0.9;
+			};
+		}
+	}
+	.ques_item_time{
+		float: left; margin-right: 400px; margin-bottom: 20px; background-color: #E1EBF1; font-size: 12px; padding: 2px 8px; border-radius: 8px; color: #A2A3BE;
+	}
+	h3{
+		float: left;
+		cursor: pointer;
+		margin-bottom: 16px; margin-right: 20px;
+	}
+	.ques_item_count{
+		float: left; padding: 2px 8px; background-color: #FFF0D2; color: #FE9A0A; border-radius: 8px;
+		margin-bottom: 16px;
+	}
+	.ques-item-content{
+		width: 490px;
+		height: 80px;
+		float: left;
+		font-size: 14px;
+		text-align: left;
+		color: #999;
+		cursor: pointer;
+		/* 隐藏超出的部分 */
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.ques-item-footer{
+		float: left;
+	}
+}
+/* 分页样式 */
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+	background-color: #ABBFFA;
+}
+#userInfo{
+	width: 290px;
+	float: right;
+}
+#ques_search{
+	width: 290px;
+	height: 50px;
+}
+#ques_sear_input {
+	width: 216px;
+	height: 34px;
+	outline: none;
+	float: left;
+	text-indent: 4px;
+	border: none;
+	background-color: #FFF;
+}
+#ques_sear_btn {
+	width: 70px;
+	height: 34px;
+	border: none;
+	float: left;
+	color: #FFF;
+	cursor: pointer;
+	background-color: #FFF;
+	outline: none;
+}

@@ -1,0 +1,136 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145; 
+
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue;
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		& > button{
+			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
+			transition: background-color 0.2s linear, color 0.2s linear;
+			&:hover{
+				background-color: $main-blue; color: #FFF;
+			}
+		}
+	}
+}
+
+#main{
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+#niming{
+	width: 800px;
+	height: 50px;
+}
+#niming img{
+	width: 400px;
+	height: 40px;
+	display: inline-block;
+	float: left;
+}
+#niming button{
+	display: inline-block;
+	background-color: #FFF;
+	border: 1px solid #797979;
+	border-radius: 10px;
+	width: 80px;
+	cursor: pointer;
+	height: 25px;
+	float: right;
+	color: #797979;
+}
+#tiwen-panel{
+	width: 760px;
+	height: auto;
+	background-color: #FFF;
+	padding: 16px 20px;
+	margin-bottom: 100px;
+}
+#ques-title{
+	width: 760px;
+	font-size: 14px;
+	text-align: left;
+}
+#ques-title-input{
+	width: 400px;
+	height: 38px;
+	outline: none;
+	margin-top: 5px;
+	margin-left: -358px;
+	text-indent: 4px;
+}
+#ques-desc{
+	width: 760px;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 16px;
+}
+#ques-desc-input{
+	display: block;
+	width: 600px;
+	height: 200px;
+	margin-top: 5px;
+}
+#ques-type{
+	width: 760px;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 16px;
+	margin-bottom: 15px;
+}
+#ques-type-btns{
+	width: 760px;
+}
+#fabu-btn{
+	width: 68px;
+	height: 26px;
+	cursor: pointer;
+	margin-top: 20px;
+	float: right;
+	border-radius: 13px;
+	border: 1px solid #797979;
+	background-color: #FFF;
+	margin-bottom: 50px;
+}
+#fabu-btn:hover{
+	background-color: #567FF5;
+	color: #FFF;
+}

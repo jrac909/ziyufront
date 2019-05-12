@@ -1,0 +1,74 @@
+#header-logo{
+	cursor: pointer;
+}
+/* 网站线条使用颜色(包括按钮、输入框边框) #797979 */
+#header{
+	width: 100%;
+	background-color: #FFF;
+	height: 90px;
+	border-bottom: 1px solid #797979;
+}
+/* body 部分一般用 1000px 的宽度，header 使用1200px 宽度 */
+.box{
+	width: 1200px;
+	height: 90px;
+	/* 下面两列属性使其子元素垂直居中，使用 flex，其子元素的 float、clear 等属性失效 */
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+}
+.box ul{
+	list-style-type: none;
+	margin-left: 40px;
+}
+.box ul li{
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.box ul li a{
+	color: #333;
+	text-decoration: none;
+}
+.box ul li a:hover{
+	color: #199ED8;
+}
+.box ul li:first-child a{
+	color: #567FF5;
+}
+.box ul span{
+	float: left;
+	color: #333;
+}
+#search{
+	margin-left: 130px;
+}
+#search input{
+	width: 260px;
+	height: 34px;
+	outline: none;
+	text-indent: 4px;
+	float: left;
+}
+#search button{
+	width: 70px;
+	height: 38px;
+	border: none;
+	background-color: #567FF5;
+	color: #FFF;
+	float: left;
+	cursor: pointer;
+}
+.login{
+	width: 60px;
+	height: 28px;
+	background-color: #FFF;
+	border-radius: 5px;
+	border: 1px solid #797979;
+	margin-left: 200px;
+	cursor: pointer;
+}
+.login:hover{
+	background-color: #567FF5;
+	color: #FFF;
+}

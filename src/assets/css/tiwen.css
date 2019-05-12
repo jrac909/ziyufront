@@ -1,0 +1,81 @@
+#main{
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+#niming{
+	width: 800px;
+	height: 50px;
+}
+#niming img{
+	width: 400px;
+	height: 40px;
+	display: inline-block;
+	float: left;
+}
+#niming button{
+	display: inline-block;
+	background-color: #FFF;
+	border: 1px solid #797979;
+	border-radius: 10px;
+	width: 80px;
+	cursor: pointer;
+	height: 25px;
+	float: right;
+	color: #797979;
+}
+#tiwen-panel{
+	width: 760px;
+	background-color: #FFF;
+	padding: 16px 20px;
+}
+#ques-title{
+	width: 760px;
+	font-size: 14px;
+	text-align: left;
+}
+#ques-title-input{
+	width: 400px;
+	height: 38px;
+	outline: none;
+	margin-top: 5px;
+	margin-left: -358px;
+	text-indent: 4px;
+}
+#ques-desc{
+	width: 760px;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 16px;
+}
+#ques-desc-input{
+	display: block;
+	width: 600px;
+	height: 200px;
+	margin-top: 5px;
+}
+#ques-type{
+	width: 760px;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 16px;
+	margin-bottom: 15px;
+}
+#ques-type-btns{
+	width: 760px;
+}
+#fabu-btn{
+	width: 68px;
+	height: 26px;
+	cursor: pointer;
+	margin-top: 20px;
+	float: right;
+	border-radius: 13px;
+	border: 1px solid #797979;
+	background-color: #FFF;
+	margin-bottom: 50px;
+}
+#fabu-btn:hover{
+	background-color: #567FF5;
+	color: #FFF;
+}

@@ -1,0 +1,142 @@
+/* 整个页面背景色 */
+#question{
+	background-color: #F6F6F6;
+}
+/* 确定内容展示部分居中，这里的高度需要内容撑起来，所有直接子元素必须有高度，不能 flow */
+#ques_main{
+	width: 1000px;
+	margin: 0 auto;
+	height: 600px;
+	margin-top: 26px;
+	margin-bottom: 30px;
+}
+/* 问题列表最外层的box */
+#ques_list{
+	width: 630px;
+	height: 580px;
+	background-color: #FFF;
+	padding: 5px 20px;
+	float: left;
+}
+#ques_list_header{
+	height: 40px;
+	border-bottom: 1px solid #797979;
+}
+#ques_list_header span{
+	font-size: 18px;
+	font-weight: bold;
+	float: left;
+	border: 1px solid #797979;
+	padding: 5px 20px;
+	margin-top: 5px;
+	margin-right: 30px;
+}
+#ques_list_header button{
+	color: #FFF;
+	border: none;
+	background-color: #ABBFFA;
+	float: left;
+	padding: 5px 16px;
+	margin-top: 13px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+#ques_list_header button:hover{
+	background-color: #698EF6;
+}
+#ques_list_header select{
+	width: 126px;
+	height: 30px;
+	margin-top: 6px;
+	margin-right: 10px;
+	outline: none;
+	float: right;
+	border: 1px solid #797979;
+}
+/* 问题展示主要部分 */
+#ques_list ul{
+	list-style-type: none;
+	margin-bottom: 30px;
+}
+#ques_list > ul li{
+	margin: 24px 0px;
+	height: 68px;
+}
+.ques_user{
+	width: 50px;
+	height: 68px;
+	float: left;
+	margin-right: 25px;
+}
+.ques_user img{
+	width: 50px;
+	height: 50px;
+}
+.ques_user span{
+	font-size: 14px
+}
+.ques_detail{
+	width: 550px;
+	height: 68px;
+	float: left;
+}
+.ques_detail h3{
+	float: left;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.ques_detail h3:hover{
+	text-decoration: underline;
+}
+.ques_detail span{
+	font-size: 14px;
+}
+.ques_item_time{
+	float: right;
+}
+.ques_item_count{
+	float: right;
+	margin-right: 40px;
+}
+.ques_detail p{
+	width: 550px;
+	height: 32px;
+	float: left;
+	font-size: 12px;
+	text-align: left;
+	cursor: pointer;
+	/* 隐藏超出的部分 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ques_detail p:hover{
+	text-decoration: underline;
+}
+/* 分页样式 */
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+	background-color: #ABBFFA;
+}
+#userInfo{
+	width: 290px;
+	float: right;
+}
+#ques_search{
+	width: 290px;
+	height: 50px;
+}
+#ques_sear_input {
+	width: 216px;
+	height: 34px;
+	outline: none;
+	float: left;
+	text-indent: 4px;
+}
+#ques_sear_btn {
+	width: 70px;
+	height: 34px;
+	border: none;
+	float: left;
+	background-color: #567FF5;
+	color: #FFF;
+	cursor: pointer;
+}

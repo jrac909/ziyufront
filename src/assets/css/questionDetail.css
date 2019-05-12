@@ -1,0 +1,171 @@
+#main{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+#qd-panel{
+	display: inline-block;
+	width: 630px;
+	vertical-align: top;
+}
+#user-panel{
+	display: inline-block;
+	width: 280px;
+	vertical-align: top;
+	margin-left: 80px;
+}
+#qd-desc{
+	width: 630px;
+	background-color: #FFF;
+	padding: 20px 26px;
+}
+#qd-desc h3{
+	text-align: left;
+}
+#other-desc{
+	width: 630px;
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+}
+#other-desc-date{
+	display: inline-block;
+	float: left;
+}
+#other-desc-name{
+	display: inline-block;
+	float: left;
+	margin-left: 30px;
+}
+#other-desc-count{
+	display: inline-block;
+	float: right;
+}
+#qd-content{
+	font-size: 14px;
+	color: #999;
+	text-align: left;
+	margin-bottom: 20px;
+}
+#qt-type{
+	width: 630px;
+	height: 36px;
+	font-size: 14px;
+}
+#qt-type-info{
+	display: inline-block;
+	float: left;
+	padding: 0 10px;
+	background-color: #FFAD76;
+	color: #FFF;
+}
+#qt-type-collect{
+	display: inline-block;
+	float: right;
+}
+#cur-username{
+	font-size: 14px;
+	color: #797979;
+	text-align: left;
+}
+#ques-input{
+	width: 630px;
+	height: 110px;
+	margin: 10px 0;
+}
+#ans-btn{
+	width: 126px;
+	height: 32px;
+	border-radius: 5px;
+	border: 1px solid #797979;
+	background-color: #FFF;
+	margin-left: -500px;
+}
+#zj-sign{
+	width: 76px;
+	height: 20px;
+	font-size: 14px;
+	color: #FFF;
+	background-color: #FB7272;
+	margin: 16px 0;
+}
+#zj-ans{
+	width: 594px;
+	background-color: #C4E0C4;
+	padding: 16px 18px;
+}
+#zj-photo{
+	width: 80px;
+	display: inline-block;
+	vertical-align: top;
+}
+#zj-photo img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+#zj-photo span{
+	display: block;
+	font-size: 14px;
+	margin-top: 8px;
+	background-color: #FFF;
+	color: #169BD5;
+}
+#zj-ans-detail{
+	display: inline-block;
+	vertical-align: top;
+	width: 500px;
+}
+#zj-ans-date{
+	font-size: 14px;
+	text-align: right;
+}
+#zj-ans-content{
+	font-size: 14px;
+	text-align: left;
+	margin-left: 28px;
+	margin-top: 14px;
+}
+#zj-huifu-btn{
+	background-color: #FFF;
+	border: 1px solid #797979;
+	border-radius: 5px;
+	width: 70px;
+	font-size: 14px;
+	margin-top: 12px;
+	height: 28px;
+	margin-left: 500px;
+	cursor: pointer;
+}
+#pl-ul{
+	width: 594px;
+	list-style: none;
+	padding: 0 18px;
+}
+#pl-ul li{
+	width: 594px;
+	padding: 16px 0 10px 0;
+	border-bottom: 1px solid #797979;
+}
+#pl-ul-user{
+	width: 594px;
+	height: 20px;
+}
+#pl-ul-user-name{
+	display: inline-block;
+	float: left;
+	color: #199ED8;
+	cursor: pointer;
+	font-size: 14px;
+}
+#pl-ul-user-date{
+	display: inline-block;
+	float: right;
+	color: #797979;
+	font-size: 14px;
+}
+#pl-ul-content{
+	width: 594px;
+	font-size: 14px;
+	text-align: left;
+}

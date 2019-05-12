@@ -1,0 +1,199 @@
+#home{
+	background-color: #F6F6F6;
+}
+#homeBox{
+	width: 1000px;
+	margin: 0 auto;
+}
+/* 走马灯图片 */
+.el-carousel__item img{
+	width: 1000px;
+}
+/* 热门推荐及公告 */
+.more-btn{
+	width: 80px;
+	height: 30px;
+	border-radius: 8px;
+	background-color: #FFF;
+	border: none;
+	color: #FDBD45;
+	float: right;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.more-btn:hover{
+	background-color: #FDBD45;
+	color: #FFF;
+}
+.case{
+	width: 1000px;
+	height: 420px;
+	margin-top: 40px;
+}
+#hot{
+	width: 750px;
+	list-style-type: none;
+	float: left;
+}
+#hot li{
+	width: 750px;
+	height: 108px;
+	background-color: #FFF;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	margin-bottom: 26px;
+}
+#hot li img{
+	width: 122px;
+	height: 108px;
+}
+/* 公告 */
+#notice{
+	width: 200px;
+	height: 360px;
+	background-color: #FFF;
+	float: right;
+	margin-top: 10px;
+}
+.hot-type{
+	font-size: 14px;
+	color: #FFF;
+}
+.hot-type-bg{
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	margin-left: -80px;
+	background-color: #000;
+	opacity: 0.3;
+	cursor: pointer;
+}
+.hot-type-bg:hover{
+	opacity: 0.5;
+}
+.hot-con{
+	margin-left: 80px;
+}
+.hot-con h3{
+	float: left;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.hot-con h3:hover{
+	text-decoration: underline;
+}
+.hot-con p{
+	width: 600px;
+	height: 50px;
+	float: left;
+	font-size: 12px;
+	text-align: left;
+	cursor: pointer;
+	line-height: 18px;
+	/* 隐藏超出部分 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.hot-con p:hover{
+	text-decoration: underline;
+}
+#notice ul{
+	margin: 20px 30px;
+}
+#notice ul li{
+	margin: 15px 0px;
+	text-align: left;
+}
+#notice ul li a{
+	text-decoration: none;
+	color: #797979;
+	font-size: 16px;
+}
+#notice ul li a:hover{
+	text-decoration: underline;
+	color: #6388F5;
+}
+/* 大标题 */
+.top-title{
+	float: left;
+	font-size: 28px;
+	color: #6388F5;
+	margin-left: 20px;
+}
+.zixun{
+	width: 1000px;
+	height: 400px;
+}
+.zj-info{
+	list-style-type: none;
+	width: 1000px;
+	height: 320px;
+	float: left;
+	margin-top: 20px;
+}
+/* 注意：这里有个坑，因为 ul 下的 li 中又包含了一个 li，所以直接写 .zj-info li 会包括所有 li，用 > 保证了只是 ul 下第一层 li */
+.zj-info>li{
+	width: 220px;
+	height: 320px;
+	float: left;
+	margin-left: 40px;
+	background-color: #FFF;
+}
+.zj-info li:first-child{
+	margin-left: 0px;
+}
+.zj-bg{
+	width: 220px;
+	height: 100px;
+}
+.zj-photo{
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	border: 2px solid #FFF;
+	margin-top: -50px;
+}
+.zj-name{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: block;
+	cursor: pointer;
+}
+.zj-shuoming{
+	font-size: 14px;
+	color: #CCC;
+	margin-bottom: 10px;
+}
+.zj-shanchang{
+	list-style-type: none;
+}
+.zj-shanchang li button{
+	background-color: #FFF;
+	border: 1px solid #797979;
+	padding: 2px 8px;
+	cursor: pointer;
+}
+.zj-shanchang li button:hover{
+	background-color: #FED145;
+	border: none;
+	color: #FFF;
+}
+.zj-yuyue{
+	width: 114px;
+	height: 32px;
+	border-radius: 5px;
+	background-color: #6388F6;
+	color: #FFF;
+	font-size: 12px;
+	border: none;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.zj-yuyue:hover{
+	background-color: #003366;
+}
+/* 注意：网站蓝色文字使用颜色 #199ED8 */
+.homeBox ul li:first-child a{
+	color: #199ED8;
+}

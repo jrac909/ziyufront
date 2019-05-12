@@ -1,0 +1,141 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145;
+
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue;
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		& > button{
+			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
+			transition: background-color 0.2s linear, color 0.2s linear;
+			&:hover{
+				background-color: $main-blue; color: #FFF;
+			}
+		}
+	}
+}
+
+#main{
+	width: 800px;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding: 10px 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#main header{
+	width: 760px;
+	height: 40px;
+	border-bottom: 1px solid #797979;
+	margin: 0 auto;
+}
+#main header span{
+	display: inline-block;
+	float: left;
+	border: 1px solid #797979;
+	width: 116px;
+	height: 39px;
+	line-height: 39px;
+	margin-right: 36px;
+	font-weight: bold;
+}
+#notice-detail{
+	width: 760px;
+	margin: 0 auto;
+	margin-top: 14px;
+	margin-bottom: 40px;
+}
+#notice-detail ul{
+	list-style: none;
+}
+#notice-detail ul li{
+	width: 760px;
+	height: 100px;
+	border-bottom: 1px dashed #797979;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+#notice-detail ul li h3{
+	float: left;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+#notice-detail ul li p{
+	width: 760px;
+	height: 40px;
+	float: left;
+	cursor: pointer;
+	font-size: 14px;
+	text-align: left;
+	margin-bottom: 10px;
+	/* 隐藏超出的部分 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#notice-date{
+	display: inline-block;
+	float: left;
+	width: 100px;
+	height: 24px;
+	background-color: #ABBFFA;
+	color: #FFF;
+	font-size: 14px;
+}
+#notice-commentCount{
+	float: right;
+	color: #999;
+	font-size: 14px;
+	margin-left: 30px;
+	cursor: pointer;
+}
+#notice-commentCount:hover{
+	color: #797979;
+}
+#notice-agreeCount{
+	cursor: pointer;
+	float: right;
+	font-size: 14px;
+	color: #999;
+}
+#notice-agreeCount:hover{
+	color: #797979;
+}
+.el-pagination{
+	margin-bottom: 20px;
+}

@@ -1,0 +1,139 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145;
+
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue;
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		& > button{
+			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
+			transition: background-color 0.2s linear, color 0.2s linear;
+			&:hover{
+				background-color: $main-blue; color: #FFF;
+			}
+		}
+	}
+
+}
+
+#main{
+	width: 820px;
+	margin: 0 auto;
+	padding: 14px 90px;
+	margin-top: 20px;
+	background-color: #FFF;
+}
+#main header{
+	width: 820px;
+	height: 34px;
+	border-bottom: 1px solid #797979;
+}
+#main header button{
+	width: 70px;
+	height: 32px;
+	margin-right: 10px;
+	cursor: pointer;
+	font-size: 14px;
+	float: left;
+}
+#all-btn{
+	border-radius: 16px;
+ 	width: 70px; height: 32px; background-color: #FFF; color: #0D8CFF; border: 1px solid #0D8CFF;
+ 	&:hover{
+ 		background-color: #F4F9FF;
+ 	};
+}
+#hot-btn{
+	border: none; background-color: #FFF;
+}
+#main ul{
+	list-style: none;
+}
+#main ul li{
+	height: 140px;
+	width: 820px;
+	margin: 28px 0px;
+}
+#main ul li img{
+	display: block;
+	float: left;
+	width: 140px;
+	height: 120px;
+	&:hover{
+		opacity: 0.9;
+	};
+}
+#essay-content{
+	width: 560px;
+	height: 140px;
+	margin-left: 20px;
+	float: left;
+}
+#main ul li>p{
+	margin-left: 20px;
+	color: #990000;
+	cursor: pointer;
+	float: left;
+	width: 80px;
+	height: 140px;
+	font-size: 12px;
+}
+#essay-content h3{
+	width: 560px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+#essay-content p{
+	width: 560px;
+	height: 60px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+#essay-content span{
+	display: block;
+	width: 560px;
+	text-align: left;
+	font-size: 14px;
+}
+#main ul{
+	margin-bottom: 30px;
+}

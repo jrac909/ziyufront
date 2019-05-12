@@ -1,0 +1,72 @@
+.essayDetail{
+	background-image: url('../../../static/image/img11.jpg'); padding: 40px 0 0 0;
+	header{
+		width: 800px; height: 150px; margin: 0 auto; background-color: rgba(255,255,255,0.5);
+		h1{
+			width: 610px; float: left; margin-top: 16px; vertical-align: center;
+		}
+		.user-photo{ 
+			width: 150px; height: 150px; float: right;
+			img{
+				width: 150px; height: 150px;
+			}
+			button{
+				width: 44px; height: 22px; font-size: 14px; background-color: #FFF; border: 1px solid #797979;
+				cursor: pointer; position: absolute; top: 100px; right: 330px; color: #1698D5;
+			}
+		}
+	}
+	.essay-main{
+		width: 800px; padding-top: 16px; margin: 0 auto; background-color: #FFF; margin-top: 40px;
+		.essay-time{
+			font-size: 14px; height: 40px; float: left; margin-left: 20px;
+		}
+		.essay-username{
+			height: 40px; font-size: 14px; float: left; margin-left: 40px; color: #EE8665; cursor: pointer;
+		}
+		.content{
+			text-align: left; font-size: 14px; margin: 0 16px; margin-top: 40px; line-height: 30px;
+		}
+		.agreeAndColloct{
+			margin-top: 14px; font-size: 14px; margin-left: 640px; padding-bottom: 20px;
+			span{
+				display: inline-block; width: 60px;
+			}
+		}
+	}
+	.cur-username{
+		width: 800px; margin: 0 auto; height: 50px; background-color: rgba(255,255,255,0.5); 
+		p{
+			font-size: 14px; text-align: left; line-height: 50px; margin-left: 30px;
+		}
+	}
+	.pl-input{
+		width: 800px; height: 110px; margin: 0 auto;
+	}
+	.pl-btn{
+		width: 126px; margin-right: 680px; margin-top: 10px; margin-bottom: 16px; cursor: pointer;
+		height: 32px; border: 1px solid #797979; border-radius: 5px; background-color: #FFF;
+		&:hover{
+			background-color: #F4F9FF; color: #3D91FF;
+		}
+	}
+	.pl-ul{
+		width: 764px; margin: 0 auto; background-color: rgba(255,255,255,0.5); list-style: none;
+		padding: 0 18px;
+		li{
+			padding: 16px 0px; border-bottom: 1px solid #797979;
+		}
+		.pl-ul-username{
+			display: inline-block; font-size: 14px; cursor: pointer; float: left; margin-left: 30px;
+			&:hover{
+				color: #000;
+			}
+		}
+		.pl-ul-date{
+			display: inline-block; font-size: 14px; padding-left: 540px;
+		}	
+		.pl-ul-content{
+			font-size: 14px; text-align: left; margin-top: 14px; line-height: 18px; margin-left: 30px;
+		}
+	}
+}

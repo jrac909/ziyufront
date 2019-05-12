@@ -1,0 +1,275 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145;
+
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue;
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		& > button{
+			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
+			transition: background-color 0.2s linear, color 0.2s linear;
+			&:hover{
+				background-color: $main-blue; color: #FFF;
+			}
+		}
+	}
+}
+
+#main{
+	width: 860px;
+	margin: 0 auto;
+	background-color: #F6F6F6;
+	height: 700px;
+	padding-top: 20px;
+}
+#notice-panel{
+	width: 500px;
+	height: 440px;
+	background-color: #FFF;
+	float: left;
+	padding: 26px 22px;
+}
+#notice-list{
+	width: 300px;
+	height: 440px;
+	margin-left: 10px;
+	float: right;
+}
+#notice-panel h2{
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 10px;
+}
+#notice-type{
+	width: 48px;
+	height: 20px;
+	text-align: center;
+	background-color: #A4BAFA;
+	line-height: 20px;
+	color: #FFF;
+	font-size: 14px;
+	float: left;
+	margin-right: 452px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+#notice-time{
+	width: 500px;
+	height: 20px;
+	line-height: 20px;
+	text-align: left;
+	font-size: 14px;
+	color: #999;
+	float: left;
+	margin-bottom: 5px;
+}
+#notice-panel p{
+	width: 500px;
+	height: 250px;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 20px;
+}
+#notice-pinglunCount{
+	display: inline-block;
+	font-size: 14px;
+	float: right;
+	margin-left: 60px;
+}
+#notice-agreeCount{
+	display: inline-block;
+	font-size: 14px;
+	float: right;
+}
+#userInfo{
+	width: 300px;
+	height: 170px;
+	background-color: #FFF;
+}
+#userInfo img{
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	margin-top: 30px;
+	float: left;
+	margin-left: 24px;
+}
+#infobox{
+	width: 140px;
+	margin-top: 30px;
+	float: left;
+}
+#infobox h3{
+	margin-bottom: 12px;
+}
+#infobox span{
+	display: inline-block;
+	width: 140px;
+	height: 30px;
+	font-size: 12px;
+	color: #999;
+}
+#infobox button{
+	width: 112px;
+	height: 38px;
+	background-color: #FFF;
+	color: #797979;
+	cursor: pointer;
+	border-radius: 4px;
+	border: 1px solid #797979;
+}
+#infobox button:hover{
+	background-color: #567FF5;
+	color: #FFF;
+}
+#xitong-notice{
+	float: left;
+	width: 300px;
+	margin-top: 30px;
+	height: 240px;
+	background-color: #FFF;
+}
+#xitong-notice h4{
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+#xitong-notice>a{
+	float: right;
+	color: #A4BAFA;
+	text-decoration: none;
+	margin-top: 20px;
+	margin-right: 20px;
+	font-size: 14px;
+}
+#xitong-notice>a:hover{
+	text-decoration: underline;
+}
+#xitong-notice ul{
+	margin-left: 20px;
+	list-style-position: inside;
+	float: left;
+	margin-top: 20px;
+}
+#xitong-notice ul li{
+	text-align: left;
+	height: 50px;
+}
+#xitong-notice ul li a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #333;
+}
+#xitong-notice ul li a:hover{
+	text-decoration: underline;
+}
+#pinglun-panel{
+	width: 860px;
+	margin-top: 30px;
+	float: left;
+}
+#pinglun-user{
+	width: 860px;
+	height: 40px;
+}
+#pinglun-photo{
+	width: 110px;
+	height: 40px;
+	float: left;
+}
+#pinglun-photo img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+#pinglun-photo p{
+	font-size: 14px;
+}
+#pinglun-input{
+	float: left;
+	width: 750px;
+	height: 40px;
+}
+#pinglun-input textarea{
+	width: 700px;
+	height: 100px;
+}
+#pinglun-panel ul{
+	float: left;
+	margin-top: 120px;
+	list-style: none;
+}
+#pinglun-panel ul li{
+	height: 100px;
+}
+#pingluner{
+	width: 100px;
+	float: left;
+	height: 100px;
+}
+#pingluner img{
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+#pingluner p{
+	font-size: 14px;
+}
+#pinglun-content{
+	margin-left: 40px;
+	width: 570px;
+	float: left;
+	text-align: left;
+}
+#pinglun-content span{
+	font-size: 14px;
+	font-weight: bolder;
+}
+#pinglun-content p{
+	font-size: 14px;
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#pinglun-panel ul li > span{
+	font-size: 14px;
+	margin-left: 30px;
+}

@@ -1,0 +1,84 @@
+header{
+	width: 100%;
+	height: 70px;
+	background-color: #438EB9;
+}
+#header-box{
+	width: 1000px;
+	height: 70px;
+	color: #FFF;
+	line-height: 70px;
+	margin: 0 auto;
+}
+#header-box h1{
+	float: left;
+}
+#header-box img{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	float: left;
+	margin-top: 5px;
+	margin-left: 700px;
+}
+#header-box span{
+	display: inline-block;
+	height: 60px;
+	margin-top: 5px;
+	float: left;
+	cursor: pointer;
+	padding: 0 20px;
+	background-color: rgba(255,255,255,0.3);
+}
+#header-box span:hover{
+	background-color: rgba(255,255,255,0.5);
+}
+#main{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 80px;
+	margin-bottom: 200px;
+}
+.el-carousel__container{
+	height: 500px;
+}
+h3{
+	float: left;
+	margin-left: 160px;
+	color: #438EB9;
+}
+.my-ul{
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 60px;
+	list-style: none;
+}
+.my-ul li{
+	margin: 30px 0;
+}
+.my-ul li h4{
+	width: 600px;
+	text-align: left;
+	margin-bottom: 5px;
+}
+.my-ul li h4:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.my-ul li p{
+	width: 600px;
+	text-align: left;
+	font-size: 14px;
+}
+.huida-mine{
+	color: #438EB9;
+}
+.my-ul li button{
+	cursor: pointer;
+	color: #999;
+	width: 40px;
+	height: 20px;
+	border: none;
+	margin-left: 500px;
+	background-color: #FFF;
+}
