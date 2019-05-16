@@ -23,7 +23,7 @@ header{
 			li{ 
 				color: 16px; float: left; margin: 0 20px; align-items: center;
 				&:hover{
-					color: $main-blue;
+					color: $main-blue; 
 				}
 			}
 			li:first-child{
@@ -41,12 +41,38 @@ header{
 				opacity: 0.9;
 			}
 		}
-		& > button{
-			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
-			transition: background-color 0.2s linear, color 0.2s linear;
+		.login_btn{
+			font-size: 16px; color: $main-blue; background-color: #FFF; border: none; width: auto; height: 100%; padding: 0 20px; margin-left: 160px; outline: none;
 			&:hover{
-				background-color: $main-blue; color: #FFF;
+				background-color: #F3F4F5;
+			};	
+		}
+		/* hover 触发下拉菜单 */
+		.user_center{
+			width: 150px; margin-left: 100px;
+			.el-dropdown-link {
+				cursor: pointer;
+    			color: #409EFF;
+    			img{
+    				width: 50px;
+    				height: 50px;
+    				margin-left: 80px;
+    				border-radius: 50%;
+    			}
 			}
+			.item {
+  margin-top: 10px;
+  margin-right: 40px;
+}
+.el-icon-arrow-down {
+    font-size: 12px;
+}
+.demonstration {
+    display: block;
+    color: #8492a6;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
 		}
 	}
 

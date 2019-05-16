@@ -7,6 +7,7 @@
 			<div class="left">
 				<h3>信息管理</h3>
 				<ul>
+					<li class="">聊天消息</li>
 					<li @click="$router.push('upinfo')">基本信息</li>
 					<li @click="$router.push('upphoto')" class="cur-li">更新头像</li>
 					<li @click="$router.push('/uppwd')">修改密码</li>

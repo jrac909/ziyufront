@@ -16,6 +16,10 @@ export function setToken(token) {
   return sessionStorage.setItem(TokenKey, JSON.stringify(token));
 }
 
+export function removeToken() {
+	return sessionStorage.removeItem(TokenKey);
+}
+
 export function getUserId() {
 	return JSON.parse(sessionStorage.getItem(UserIdKey));
 }
@@ -40,6 +44,10 @@ export function getUserPhoto() {
 export function setUserPhoto(photo) {
   
   return sessionStorage.setItem(UserPhotoKey, JSON.stringify(photo));
+}
+
+export function removeUserPhoto() {
+	return sessionStorage.removeItem(UserPhotoKey);
 }
 
 export function getUserNickname() {

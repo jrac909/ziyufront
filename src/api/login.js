@@ -17,7 +17,16 @@ export function getYZM(mobile, code){
 		}
 	})
 }
-
+export function checkIdcard(idcard, truename){
+	return requestId({
+		url: '/lianzhuo/idcard',
+		method: 'get',
+		params: {
+			cardno: idcard,
+			name: truename
+		}
+	})
+}
 export function checkName(username){
 	return request({
 		url: '/user/checkName',

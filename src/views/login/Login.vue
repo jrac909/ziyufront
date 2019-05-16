@@ -1,6 +1,7 @@
 <template>
 <div class="login-container">
 	<header></header>
+    <button @click="one()">连接</button><button @click="two">duankai 连接</button>
 	<el-tabs type="border-card">
   		<el-tab-pane>
     		<span slot="label">登录</span>
@@ -139,7 +140,8 @@ export default{
             loginPwdTip: false,
             nameSuccess: false,
             pwdSuccess: false,
-            tempCode: 0
+            tempCode: 0,
+            websocket: {}
 		}
 	},
     methods: {
@@ -174,10 +176,21 @@ export default{
         login(){
             this.$refs.loginForm.validate(valid => {
                 if (valid){
+
                     this.$store.dispatch('Login', this.loginInfo).then(response => {
-                        this.$router.push({ path: '/' });
+                        this.$router.push({ 
+                            path: '/',
+                            query: {
+                                websocket: this.websocket,
+                                name: 'Tom'
+                            } });
                     }).catch(error => {
                     })
+                    /*this.initWebSocket();*/
+                       /* this.$store.dispatch('InitWebsocket', this.$store.getters.id).then(res => {
+                            const a = this.$store.getters.websocket;
+                            alert(a);
+                        })*/
                 } else {
                     return false;
                 }
@@ -193,6 +206,51 @@ export default{
                     })
                 }
             })
+        },
+        /**
+         * 与服务器建立连接，用当前用户ID作为唯一标识
+         **/
+        initWebSocket(){
+            const URL = `ws://localhost:9988/websocket/${this.$store.getters.id}`;
+            // WebSocket与普通的请求所用协议有所不同，ws等同于http，wss等同于https
+            this.websock = new WebSocket(URL);
+            this.websock.onopen = this.websocketonopen;
+            this.websock.onerror = this.websocketonerror;
+            this.websock.onmessage = this.websocketonmessage;
+            this.websock.onclose = this.websocketclose;
+            console.log("登录成功，用户上线");
+        },
+        websocketonopen() {
+            console.log("WebSocket连接成功");
+        },
+        websocketonerror(e) {
+            console.log("WebSocket连接发生错误");
+        },
+        websocketonmessage(e) {
+            if (e.data) {
+                alert("Test:"+e.data);
+            }
+        },
+        websocketclose(e) {
+            this.websock.close(); //关闭TCP连接
+            console.log("connection closed");
+        },
+        // 测试群发
+        test(){
+            alert("发送前");
+      /*this.websock.send(JSON.stringify({
+          name: 'Tom'
+      }));*/
+            qunfa().then(response => {
+
+            })
+        },
+        one(){
+            this.initWebSocket();
+
+        },
+        two(){
+            this.websock.close();
         }
     }
 }	

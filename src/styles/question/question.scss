@@ -6,7 +6,7 @@ $bg-yellow: #FED145;
 
 /* 整个页面背景色 */
 #question{
-	background-color: #F6F6F6;
+	background-color: #F6F6F6; 
 }
 /* Header */
 header{	
@@ -45,12 +45,11 @@ header{
 				opacity: 0.9;
 			}
 		}
-		& > button{
-			font-size: 12px; background-color: #FFF; border: 1px solid $line-gray; width: auto; height: 28px; border-radius: 5px; padding: 0 20px; margin-left: 160px; 
-			transition: background-color 0.2s linear, color 0.2s linear;
+		.login_btn{
+			font-size: 16px; color: $main-blue; background-color: #FFF; border: none; width: auto; height: 100%; padding: 0 20px; margin-left: 160px; outline: none;
 			&:hover{
-				background-color: $main-blue; color: #FFF;
-			}
+				background-color: #F3F4F5;
+			};	
 		}
 	}
 }

@@ -50,6 +50,10 @@ export const constantRouterMap = [
     component: () => import('@/views/user/Uppwd')
   },
   {
+    path: '/newslist',
+    component: () => import('@/views/user/NewsList')
+  },
+  {
     path: '/follow',
     component: () => import('@/views/user/Follow')
   },

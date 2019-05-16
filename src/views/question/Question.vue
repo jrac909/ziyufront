@@ -6,7 +6,7 @@
 			<ul>
 				<li @click="$router.push('/')">首页</li>
 				<span>|</span>
-				<li @click="$router.push('question')">问答</li>
+				<li @click="$router.push('question')">问答</li> 
 				<li @click="$router.push('zixun')">咨询</li>
 				<li @click="$router.push('essay')">文章</li>
 			</ul>
@@ -14,7 +14,7 @@
 				<input v-model="searchForm.name" type="text" placeholder="请输入专家名字/领域关键字">
 				<button @click="queryData">搜&nbsp;&nbsp;索</button>
 			</form>
-			<button @click="login" v-if="$store.getters.token === null">登录</button>
+			<button @click="login" class="login_btn" v-if="$store.getters.token === null">登录</button>
 			<button v-if="$store.getters.token !== null">个人中心</button>
      	</div>
 	</header>
@@ -133,7 +133,12 @@ export default{
 					quesId: id 
 				}
 			})
-		}
+		},
+		login(){
+      		this.$router.push({
+        		path: 'login'
+      		});
+    	}
 	}
 }
 </script>

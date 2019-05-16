@@ -14,8 +14,25 @@
 					<input v-model="searchForm.name" type="text" placeholder="请输入专家名字/领域关键字">
 					<button @click="queryData">搜&nbsp;&nbsp;索</button>
 				</form>
-				<button @click="login" v-if="$store.getters.token === null">登录</button>
-				<button @click="$router.push('user')" v-if="$store.getters.token !== null">个人中心</button>
+				<button @click="login" class="login_btn" v-if="$store.getters.token === null">登录</button>
+        <div class="user_center" v-if="$store.getters.token !== null">
+          <el-row class="block-col-2">
+            <el-col :span="12">
+              <el-dropdown>
+                <span class="el-dropdown-link">
+                  <img class="user_photo" :src="$store.getters.photo">
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item @click.native="$router.push('user')" icon="el-icon-s-custom">个人中心</el-dropdown-item>
+                  <el-dropdown-item icon="el-icon-circle-plus">
+                    <el-badge :is-dot="isdot" @click.native="$router.push('newslist')" class="item">消&nbsp;&nbsp;息</el-badge>
+                  </el-dropdown-item>
+                  <el-dropdown-item @click.native="checkout" icon="el-icon-circle-plus-outline">退&nbsp;&nbsp;出</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </el-col>
+          </el-row>
+        </div>
       </div>
 		</header>
 		<section class="banner" role="banner">
@@ -26,7 +43,7 @@
   			</el-carousel>
 		</section>
     <div class="main">
-      <h2 style="cursor: pointer;" @click="$router.push('essay')">热门文章</h2>
+      <h2 style="cursor: pointer;" @click="$router.push('essay')">心理知识</h2>
       <section>
         <ul>
           <li v-for="(item, index) in hotessay" :key="index">
@@ -71,6 +88,7 @@ import { getAdsList } from '@/api/picture';
 import { getHotEssay } from '@/api/essay';
 import { getLastNotice } from '@/api/notice';
 import { getLastEUC } from '@/api/expert';
+import * as SixinService from '@/api/sixin'
 
 export default{
 	name: 'Home',
@@ -82,11 +100,19 @@ export default{
 			adslist: [],
       hotessay: [],
       lastnotice: [],
-      lasteuc: []
+      lasteuc: [],
+      isdot: true, // 未读消息红色小点
+      websocket: {},
+      name: '',
+      weiduCount: 0
 		}
 	},
 	created(){
 		this.fetchData();
+    this.name = this.$route.query.name;
+    if (this.$store.getters.token != null){
+      this.getWeiduCount();
+    }
 	},
 	methods: {
 		fetchData(){
@@ -116,6 +142,18 @@ export default{
         path: 'login'
       });
     },
+    /**
+     * 退出登录，成功退出跳转到登录页面
+     **/
+    checkout(){
+      this.$store.dispatch('Checkout').then(res => {
+        this.$router.push({ path: '/login' });
+      
+       
+      }).catch(err => {
+        console.log(err);
+      });
+    },
     gozixun(){
 
     },
@@ -133,6 +171,14 @@ export default{
         query: {
           expertId: expertId
         }
+      })
+    },
+    getWeiduCount(){
+      SixinService.getWeiduCount(this.$store.getters.id).then(res => {
+        this.weiduCount = res.data;
+        this.isdot = this.weiduCount == 0?false:true;
+      }).catch(err => {
+        console.log(err);
       })
     }
 	}

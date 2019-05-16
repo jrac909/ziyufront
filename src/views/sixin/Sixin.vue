@@ -4,74 +4,29 @@
 			<img @click="$router.push('/')" src="/static/image/title.png">
 		</header>
 		<div class="main">
-			<div class="left">
-				<el-collapse v-model="activeNames" @change="handleChange">
-  					<el-collapse-item name="2">
-  						<template slot="title">
-      						<span style=" margin-left: 40px;">已读消息</span>
-    					</template>
-    					<ul>
-    						<li>
-    							<img src="">
-    							<span></span>
-    						</li>
-    					</ul>
-  					</el-collapse-item>
-  					<el-collapse-item name="1" class="weidu">
-  						<template slot="title">
-      						<span style=" margin-left: 40px;">未读消息</span>
-    					</template>
-    					<ul>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    						<li>
-    							<img src="/static/image/img9.jpg">
-    							<span>透明的玻璃</span>
-    						</li>
-    					</ul>
-  					</el-collapse-item>
-				</el-collapse>
-			</div>
+			<div class="left"> 
+        
+      </div>
 			<div class="right">
 				<div class="title">
 					<h4>{{ this.acceptUser.userNickname }}</h4>
 				</div>
 				<section class="show">	
+          <ul v-if="this.newslist && this.newslist.length !== 0">
+            <li :id="'news'+index" v-for="(news, index) in newslist" :key="index">
+              <!-- <p class="sendTime" v-if="news.newSendId == $store.getters.id">{{ news.newDate.split('T')[0] }}&nbsp;&nbsp;&nbsp;{{ news.newDate.split('T')[1].split('.')[0] }}</p>
+              <p class="sendTime" v-if="news.newSendId != $store.getters.id">{{ news.newDate.split('T')[0] }}&nbsp;&nbsp;&nbsp;{{ news.newDate.split('T')[1].split('.')[0] }}</p> -->
+              <img class="sendPhoto" v-if="news.newSendId == $store.getters.id" :src="sendUser.userPhoto">
+              <img class="rePhoto" v-if="news.newReceiveId == $store.getters.id" :src="acceptUser.userPhoto">
+              <p class="sendMsg" v-if="news.newSendId == $store.getters.id">{{news.newContent}}</p>
+              <p class="reMsg" v-if="news.newSendId != $store.getters.id">{{news.newContent}}</p>
+            </li>
+          </ul>
 				</section>
 				<section class="input-panel">
-					<textarea>
+					<textarea v-model="content">
 					</textarea>
-					<button @click="test()">发送</button>
+					<button @click="sendMsgToUser()">发送</button>
 				</section>
 			</div>
 		</div>
@@ -80,11 +35,13 @@
 <script>
 import { getuser } from '@/api/user';
 import { qunfa } from '@/api/sixin';
+import * as ExpertService from '@/api/expert';
+import * as SixinService from '@/api/sixin';
 
 export default{
 	data(){
 		return {
-			websock: {},
+			websocket: {},
 			searchForm: {
 
 			},
@@ -92,17 +49,60 @@ export default{
 			acceptUser: {},
 			sendUserId: this.$store.getters.id,
 			sendUser: {},
-			activeNames: ['1']
+			activeNames: ['1'],
+      expert: {},
+      newslist: [],
+      content: ''
 		}
 	},
 	created(){
-		const acceptUserId = this.$route.query.acceptUserId;
-		this.acceptUserId = acceptUserId;
+		this.acceptUserId = this.$route.query.acceptUserId;
 		this.getAcceptUser();
 		this.getSendUser();
-		this.initWebSocket();
+    this.cancelWeidu();
+    this.getCurNews();
+		/*this.initWebSocket();*/
+    this.initWebSocket();
 	},
+  updated(){
+    // var a = document.getElementById('news2');
+    // console.log(a); 享受着现在得到的爱，却也清醒的知道这爱并不会长久，没关系就享受当下，不要跟我说以后
+    if (document.getElementById('news'+(this.newslist.length-1))){
+      document.getElementById('news'+(this.newslist.length-1)).scrollIntoView(false);
+    }
+  },
+  destroyed(){
+    this.websocketclose();
+  },
 	methods: {
+    cancelWeidu(){
+      SixinService.cancelWeidu(this.$store.getters.id, this.acceptUserId).then(res => {
+        console.log("成功取消未读");
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    getCurNews(){
+      SixinService.getCurNews(this.$store.getters.id, this.acceptUserId).then(res => {
+        this.newslist = res.data;
+        console.log(this.newslist);
+      })
+    },
+    getAcceptUser(){
+      getuser(this.acceptUserId).then(response => {
+        this.acceptUser = response.data;
+        if (this.acceptUser.userRole == 1){
+          ExpertService.getById(this.acceptUserId).then(res => {
+            this.expert = res.data
+          });
+        }
+      })
+    },
+    getSendUser(){
+      getuser(this.sendUserId).then(response => {
+        this.sendUser = response.data;
+      })
+    },
 		initWebSocket(){
 			   const URL = `ws://localhost:9988/websocket/${this.$store.getters.id}`;
             // WebSocket与普通的请求所用协议有所不同，ws等同于http，wss等同于https
@@ -112,22 +112,34 @@ export default{
             this.websock.onmessage = this.websocketonmessage;
             this.websock.onclose = this.websocketclose;
 
-		    },
-		    websocketonopen() {
-            console.log("WebSocket连接成功");
-        },
-        websocketonerror(e) {
-            console.log("WebSocket连接发生错误");
-        },
-        websocketonmessage(e) {
-            if (e.data) {
-                alert("Test:"+e.data);
-            }
-        },
-        websocketclose(e) {
-            this.websock.close(); //关闭TCP连接
-            console.log("connection closed");
-        },
+        console.log(this.websock);
+		},
+		websocketonopen() {
+      console.log("WebSocket连接成功");
+    },
+    websocketonerror(e) {
+      console.log("WebSocket连接发生错误");
+    },
+    websocketonmessage(e) {
+      if (e.data) {
+          /*let len = this.newslist.length;
+          let obj = {};
+          obj.newReceiveId= this.$store.getters.id;
+          obj.newSendId= this.acceptUserId;
+          /*obj.newDate = new Date();*/
+          /*obj.newContent = e.data;
+          this.newslist.push(obj);*/
+          this.getCurNews();
+
+          console.log(this.newslist);
+      }
+    },
+    websocketclose(e) {
+        this.websock.close(); //关闭TCP连接
+        console.log("connection closed");
+        /*alert("conn close");*/
+        SixinService.close(this.$store.getters.id).then(res=>{})
+    },
 		queryData(){
 			console.log("a");
 		},
@@ -140,20 +152,19 @@ export default{
 
       })
     },
-		handleChange(val) {
-			console.log(val);
-      	},
-      	getAcceptUser(){
-      		getuser(this.acceptUserId).then(response => {
-      			this.acceptUser = response.data;
-      		})
-      	},
-      	getSendUser(){
-      		getuser(this.sendUserId).then(response => {
-      			this.sendUser = response.data;
-      		})
-      	}
-	}
+    sendMsgToUser(){
+      SixinService.sendMsgToUser(this.$store.getters.id, this.acceptUserId, this.content).then(res => {
+          let len = this.newslist.length;
+          let obj = {};
+          obj.newSendId = this.$store.getters.id;
+          obj.newReceiveId= this.acceptUserId;
+          /*obj.newDate = new Date();*/
+          obj.newContent = this.content;
+          this.newslist.push(obj);
+          this.content = '';
+        })
+    }
+  }
 }	
 </script>
 <style style="stylesheet/scss" lang="scss" scoped>

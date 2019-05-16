@@ -1,14 +1,16 @@
 import { login } from '@/api/login';
-import { getToken, setToken, getUserId, setUserId, getUsername, setUsername, getUserPhoto, setUserPhoto, getUserNickname, setUserNickname, getUserRole, setUserRole} from '@/utils/auth';
+import * as SessionStorageUtil from '@/utils/auth';
+import * as WebsocketUtil from '@/utils/websocketutil';
 
 const user = {
   state: {
-    token: getToken(),
-    id: getUserId(),
-    username: getUsername(),
-    photo: getUserPhoto(),
-    nickname: getUserNickname(),
-    role: getUserRole()
+    token: SessionStorageUtil.getToken(),
+    id: SessionStorageUtil.getUserId(),
+    username: SessionStorageUtil.getUsername(),
+    photo: SessionStorageUtil.getUserPhoto(),
+    nickname: SessionStorageUtil.getUserNickname(),
+    role: SessionStorageUtil.getUserRole(),
+    websocket: {}
   },
 
   mutations: {
@@ -35,6 +37,9 @@ const user = {
     },
     SET_ROLE: (state, role) => {
       state.role = role
+    },
+    SET_Websocket: (state, websocket) => {
+      state.websocket = websocket
     }
   },
 
@@ -47,12 +52,12 @@ const user = {
           /* 验证账号密码这里只返回一个 token 值 */
           const user = response.data;
           /* 把 Token 值存进 Cookies */
-          setToken(user.userToken);
-          setUsername(user.userAccount);
-          setUserId(user.userId);
-          setUserPhoto(user.userPhoto);
-          setUserNickname(user.userNickname);
-          setUserRole(user.userRole);
+          SessionStorageUtil.setToken(user.userToken);
+          SessionStorageUtil.setUsername(user.userAccount);
+          SessionStorageUtil.setUserId(user.userId);
+          SessionStorageUtil.setUserPhoto(user.userPhoto);
+          SessionStorageUtil.setUserNickname(user.userNickname);
+          SessionStorageUtil.setUserRole(user.userRole);
           /* 现在 store 的 state 也把 token 存下来了 */
           commit('SET_ID', user.userId);
           commit('SET_TOKEN', user.userToken);
@@ -65,6 +70,20 @@ const user = {
           reject(error)
         })
       })
+    },
+    // 退出登录，将sessionstorage中的token移除
+    Checkout({ commit, state}){
+      return new Promise((resolve, reject) => {
+        SessionStorageUtil.removeToken();
+        resolve();
+      });
+    },
+    InitWebsocket({commit, state}, id){
+      return new Promise((resolve, reject) => {
+            /*WebsocketUtil.initWebSocket(id);*/
+            commit('SET_Websocket', WebsocketUtil.initWebSocket(id));
+            resolve();
+          });
     }
   }
 
