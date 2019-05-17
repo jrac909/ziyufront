@@ -1,7 +1,6 @@
 <template>
 <div class="login-container">
 	<header></header>
-    <button @click="one()">连接</button><button @click="two">duankai 连接</button>
 	<el-tabs type="border-card">
   		<el-tab-pane>
     		<span slot="label">登录</span>

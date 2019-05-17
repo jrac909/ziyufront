@@ -1,23 +1,40 @@
 <template>
 <div class="app-container">
 	<header>
-      	<div class="header-box">
-			<router-link to="/"><img src="/static/image/title.png" alt="自愈心理在线咨询" title="在线心理咨询网站" /></router-link>
-			<ul>
-				<li @click="$router.push('/')">首页</li>
-				<span>|</span>
-				<li @click="$router.push('question')">问答</li>
-				<li @click="$router.push('zixun')">咨询</li>
-				<li @click="$router.push('essay')">文章</li>
-			</ul>
-			<form :model="searchForm" auto-complete="on" >
-				<input v-model="searchForm.name" type="text" placeholder="请输入专家名字/领域关键字">
-				<button @click="queryData">搜&nbsp;&nbsp;索</button>
-			</form>
-			<button @click="login" v-if="$store.getters.token === null">登录</button>
-			<button v-if="$store.getters.token !== null">个人中心</button>
-     	</div>
-	</header>
+      <div class="header-box">
+        <img @click="$router.push('/')" src="/static/image/title.png" alt="自愈心理在线咨询" title="在线心理咨询网站" />
+        <ul>
+          <li @click="$router.push('/')">首页</li>
+          <span>|</span>
+          <li @click="$router.push('question')">问答</li>
+          <li @click="$router.push('zixun')">咨询</li>
+          <li @click="$router.push('essay')">文章</li>
+        </ul>
+        <form :model="searchForm" auto-complete="on" >
+          <input v-model="searchForm.name" type="text" placeholder="请输入专家名字/领域关键字">
+          <button @click="queryData">搜&nbsp;&nbsp;索</button>
+        </form>
+        <button @click="login" class="login_btn" v-if="$store.getters.token === null">登录</button>
+        <div class="user_center" v-if="$store.getters.token !== null">
+          <el-row class="block-col-2">
+            <el-col :span="12">
+              <el-dropdown>
+                <span class="el-dropdown-link">
+                  <img class="user_photo" :src="$store.getters.photo">
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item @click.native="$router.push('user')" icon="el-icon-s-custom">个人中心</el-dropdown-item>
+                  <el-dropdown-item icon="el-icon-circle-plus">
+                    <el-badge :is-dot="isdot" @click.native="$router.push('newslist')" class="item">消&nbsp;&nbsp;息</el-badge>
+                  </el-dropdown-item>
+                  <el-dropdown-item @click.native="checkout" icon="el-icon-circle-plus-outline">退&nbsp;&nbsp;出</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+  </header>
 	<section class="head">
 		<span>分类</span>
 		<select style="background-color: #FFAD76;">
@@ -35,10 +52,12 @@
 			<option>上海</option>
 		</select>
 		<div class="ruzhu-panel">
-			<p>已有{{ this.expertCount }}位专家入驻</p>
-			<button v-if="$store.getters.role == 0">申请入驻</button>
-			<button v-if="$store.getters.role == 2">审核情况</button>
-			<h3 v-if="$store.getters.role == 1">感谢您的入驻！</h3>
+      <svg-icon v-if="status==3" class="ruzhu-icon" icon-class="ruzhu"></svg-icon>
+			<button v-if="status == 3" @click="$router.push('/shiming')">申请入驻</button>
+      <svg-icon v-if="status == 0" class="shenhe-icon" icon-class="wait"></svg-icon>
+			<h3 v-if="status == 0">&nbsp;&nbsp;审核中...</h3>
+      <svg-icon v-if="status == 1" style="margin-left: 60px;" class="shenhe-icon" icon-class="thx"></svg-icon>
+			<h3 v-if="status == 1">&nbsp;&nbsp;感谢您的入驻！</h3>
 		</div>
 	</section>
 	<section class="experts">
@@ -74,6 +93,13 @@
 <script>
 import { listEUC, queryEUC, getExpertCount } from '@/api/expert';
 
+import { getAdsList } from '@/api/picture';
+import { getHotEssay } from '@/api/essay';
+import { getLastNotice } from '@/api/notice';
+import { getLastEUC } from '@/api/expert';
+import * as SixinService from '@/api/sixin'
+import * as ShenheService from '@/api/shenhe'
+
 export default{
 	name: 'Zixun',
 	data(){
@@ -83,8 +109,13 @@ export default{
 			currentpage: 1,
 			pagesize: 10,
 			searchForm: { name: ''},
-      		expertList: [],
-      		expertFieldList: [],
+      expertList: [],
+      expertFieldList: [],
+      isdot: true, // 未读消息红色小点
+      websocket: {},
+      name: '',
+      weiduCount: 0,
+      status: 0
 		}
 	},
   created(){
@@ -94,6 +125,10 @@ export default{
   		}
   	this.fetchData();
   	this.getExpertCount();
+    if (this.$store.getters.token != null){
+      this.getWeiduCount();
+    }
+    this.getStatus();
   },
   methods: {
   	fetchData(){
@@ -109,8 +144,6 @@ export default{
   	pagechange(){
   		this.fetchData();
   	},
-  	login(){
- 		},
  		getExpertCount(){
  			getExpertCount().then(response => {
  				this.expertCount = response.data;
@@ -122,6 +155,51 @@ export default{
         query: {
           expertId: expertId
         }
+      })
+    },
+    login(){
+      this.$router.push({
+        path: 'login'
+      });
+    },
+    /**
+     * 退出登录，成功退出跳转到登录页面
+     **/
+    checkout(){
+      this.$store.dispatch('Checkout').then(res => {
+        this.$router.push({ path: '/login' });
+      
+       
+      }).catch(err => {
+        console.log(err);
+      });
+    },
+    gozixun(){
+
+    },
+    goessayDetail(essayId){
+      this.$router.push({
+        path: '/essayDetail',
+        query: {
+          essayId: essayId
+        }
+      })
+    },
+    getWeiduCount(){
+      SixinService.getWeiduCount(this.$store.getters.id).then(res => {
+        this.weiduCount = res.data;
+        this.isdot = this.weiduCount == 0?false:true;
+      }).catch(err => {
+        console.log(err);
+      })
+    },
+    getStatus(){
+      ShenheService.getStatus(this.$store.getters.id).then(res => {
+        this.status = res.data;
+        alert("成功");
+      }).catch(err => {
+        alert("错");
+        console.log(err);
       })
     }
   }

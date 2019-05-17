@@ -11,6 +11,24 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+        // 设置跨域，请求第三方身份认证接口
+        '/zige': {
+            target: 'http://route.showapi.com',
+            "secure": true,
+            changeOrigin: true,
+            pathRewrite: {
+                '^/zige': '/'
+            }
+        },
+        // 设置跨域，请求第三方身份认证接口
+        '/idcard': {
+            target: 'https://api12.aliyun.venuscn.com',
+            "secure": true,
+            changeOrigin: true,
+            pathRewrite: {
+                '^/idcard': '/'
+            }
+        },
         '/api': {
             target: 'http://localhost:9988',
             changeOrigin: true,
@@ -26,18 +44,6 @@ module.exports = {
                 '^/yz': '/'
             },
              "headers": {//设置请求头伪装成手机端的访问
-                "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
-            }
-        },
-        // 设置跨域，请求第三方身份认证接口
-        '/idcard': {
-            target: 'http://op.juhe.cn',
-            "secure": true,
-            changeOrigin: true,
-            pathRewrite: {
-                '^/idcard': '/'
-            },
-             "headers": {
                 "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
             }
         }

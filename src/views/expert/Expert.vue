@@ -6,7 +6,7 @@
 				<ul>
 					<li @click="$router.push('/')">首页</li>
 					<span>|</span>
-					<li @click="$router.push('question')">问答</li>
+					<li @click="$router.push('question')">问答</li> 
 					<li @click="$router.push('zixun')">咨询</li>
 					<li @click="$router.push('essay')">文章</li>
 				</ul>

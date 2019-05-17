@@ -1,0 +1,95 @@
+$main-blue: #567FF5;
+$line-gray: #797979;
+$h-blue: #6388F6;
+$text-gray: #CCC;
+$bg-yellow: #FED145;
+
+/* Header */
+header{	
+	width: 100%; height: 88px; background-color: #FFF; border-bottom: 1px solid $line-gray;
+	
+	.header-box{ 
+		width: 1200px; height: 88px; margin: 0 auto; display: -webkit-flex; display: flex; align-items: center;
+		
+		img{ 
+			cursor: pointer; float: left; display: block; margin: auto 0;
+		}
+		ul{ 
+			list-style: none; width: auto; height: 16px; margin-left: 50px;
+
+			span{
+				float: left;
+			}
+			li{ 
+				color: 16px; float: left; margin: 0 20px; align-items: center;
+				&:hover{
+					color: $main-blue; 
+				}
+			}
+			li:first-child{
+				color: $main-blue;
+			}
+		}
+		form{
+			input{
+				width: 260px; height: 34px; text-indent: 4px; outline: none; margin-left: 100px; float: left;
+			}
+			button{
+				width: 70px; height: 38px; border: none; color: #FFF; background-color: $main-blue; float: left;
+			}
+			button:hover{
+				opacity: 0.9;
+			}
+		}
+		.login_btn{
+			font-size: 16px; color: $main-blue; background-color: #FFF; border: none; width: auto; height: 100%; padding: 0 20px; margin-left: 160px; outline: none;
+			&:hover{
+				background-color: #F3F4F5;
+			};	
+		}
+		/* hover 触发下拉菜单 */
+		.user_center{
+			width: 150px; margin-left: 100px;
+			.el-dropdown-link {
+				cursor: pointer;
+    			color: #409EFF;
+    			img{
+    				width: 50px;
+    				height: 50px;
+    				margin-left: 80px;
+    				border-radius: 50%;
+    			}
+			}
+			.item {
+  				margin-top: 10px;
+  			margin-right: 40px;
+		}
+	.el-icon-arrow-down {
+    	font-size: 12px;
+	}
+	.demonstration {
+    	display: block;
+    	color: #8492a6;
+    	font-size: 14px;
+    	margin-bottom: 20px;
+	}
+		}
+	}
+}
+.process_bar{
+	width: 980px;
+	margin: 30px auto;
+	.el-steps{
+		background-color: #FFF;
+	}
+}
+.shiming{
+	width: 980px;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding-top: 30px;
+	.el-input{
+		width: 800px;
+		float: left;
+	}
+}

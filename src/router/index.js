@@ -22,6 +22,18 @@ export const constantRouterMap = [
     component: () => import('@/views/expert/Zixun')
   },
   {
+    path: '/shiming',
+    component: () => import('@/views/expert/Shiming')
+  },
+  {
+    path: '/zili',
+    component: () => import('@/views/expert/Zili')
+  },
+  {
+    path: '/ruzhu',
+    component: () => import('@/views/expert/Ruzhu')
+  },
+  {
     path: '/question',
     component: () => import('@/views/question/Question')
   },
